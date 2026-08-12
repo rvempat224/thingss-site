@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Thingss Spike</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <!-- These two are what make "Add to Home Screen" open standalone on iPadOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Thingss Spike" />
+    <meta name="theme-color" content="#1e6fd9" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        margin: 0; padding: 16px; padding-top: calc(16px + env(safe-area-inset-top));
+        background: #f5f5f7; color: #1d1d1f; max-width: 640px; margin-inline: auto;
+      }
+      h1 { font-size: 24px; margin: 0 0 4px; }
+      .sub { color: #6e6e73; font-size: 12px; margin-bottom: 16px; }
+      #status {
+        background: #fff; border-radius: 10px; padding: 12px 14px; font-size: 16px;
+        line-height: 1.6; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word;
+      }
+      .row { display: flex; gap: 10px; margin-bottom: 12px; }
+      button {
+        flex: 1; font-size: 16px; padding: 14px 10px; border: 0; border-radius: 10px;
+        background: #1e6fd9; color: #fff; font-weight: 600; cursor: pointer;
+      }
+      button.secondary { background: #e3e3e8; color: #1d1d1f; }
+      button:disabled { opacity: 0.5; }
+      h2 { font-size: 12px; color: #6e6e73; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 0.03em; }
+      #entries, #log {
+        background: #fff; border-radius: 10px; padding: 10px 14px; font-size: 12px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        line-height: 1.7; overflow-x: auto; white-space: pre;
+      }
+      #log { color: #3a3a3c; max-height: 40vh; overflow-y: auto; }
+    </style>
+    <script type="module" crossorigin src="/thingss-site/assets/index-D_PM_L-v.js"></script>
+  </head>
+  <body>
+    <h1>Thingss — M0 sync spike</h1>
+    <div class="sub">Throwaway. Proves: silent token renewal in a standalone PWA + Drive round-trip + merge.</div>
+    <div id="status">Loading…</div>
+    <div class="row">
+      <button id="signin">Sign in / renew</button>
+      <button id="sync" class="secondary">Sync now</button>
+    </div>
+    <h2>Entries in Drive file (all devices)</h2>
+    <div id="entries">—</div>
+    <h2>Event log (persists on this device)</h2>
+    <div id="log">—</div>
+  </body>
+</html>
